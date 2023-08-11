@@ -4,6 +4,7 @@ import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
 const App = () => {
   const [inputValues, setInputValues] = useState({
     input1: '',
+    input2: '',
   
   });
   const [sum, setSum] = useState(0);
@@ -13,7 +14,7 @@ const App = () => {
   };
 
   const handleSum = () => {
-    const { input1 } = inputValues;
+    const { input1, input2 } = inputValues;
     const result = parseInt(input1) + parseInt(input2) + parseInt(input3) + parseInt(input4) + parseInt(input5);
     setSum(result);
   };
@@ -25,6 +26,14 @@ const App = () => {
         style={styles.input}
         onChangeText={(value) => handleInputChange('input1', value)}
         value={inputValues.input1}
+        keyboardType="numeric"
+      />
+
+<Text style={styles.label}>Input 2:</Text>
+      <TextInput
+        style={styles.input}
+        onChangeText={(value) => handleInputChange('input2', value)}
+        value={inputValues.input2}
         keyboardType="numeric"
       />
 
